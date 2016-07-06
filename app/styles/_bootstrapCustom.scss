@@ -1,8 +1,13 @@
+$padding-factor: 15px;
+
 .form-control {
   padding: $padding-large-vertical $padding-large-horizontal;
 }
 
-.btn {
-  padding-left: $padding-large-vertical+15px;
-  padding-right: $padding-large-vertical+15px;
+.btn-lg {
+  @include button-size($padding-base-vertical, $padding-base-horizontal+$padding-factor, $font-size-base, $line-height-base, $btn-border-radius-base);
+}
+
+.btn-sm {
+  @include button-size($padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $btn-border-radius-base);
 }
