@@ -1,17 +1,21 @@
-'use strict';
+(function(angular) {
+  'use strict';
 
-/**
- * @ngdoc function
- * @name diferentonasStaffApp.controller:MainCtrl
- * @description
- * # MainCtrl
- * Controller of the diferentonasStaffApp
- */
-angular.module('diferentonasStaffApp')
-  .controller('MainCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+  angular
+    .module('diferentonasStaffApp')
+    .controller('MainCtrl', MainCtrl);
+
+    function MainCtrl() {
+      var vm = this;
+
+      vm.message = {
+        title: '',
+        message: ''
+      }
+      vm.saveMessage = saveMessage;
+
+      function saveMessage() {
+        console.log(vm.message);
+      }
+    }
+})(angular);

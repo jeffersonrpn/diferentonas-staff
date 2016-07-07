@@ -2,12 +2,16 @@
   <div class="row">
     <div class="col-md-6 columns column-primary">
 
-        <form>
+        <form name="saveMessage" novalidate ng-submit="saveMessage()">
           <div class="form-group">
-            <input type="text" id="titulo" name="title" class="form-control" placeholder="Título">
+            <input type="text" id="titulo" name="title" placeholder="Título" class="form-control"
+              ng-model="main.message.title"
+              required>
           </div>
           <div class="form-group">
-            <textarea id="mensagem" name="message" rows="8" cols="40" class="form-control text-area" placeholder="Mensagem"></textarea>
+            <textarea id="mensagem" name="message" rows="8" cols="40" placeholder="Mensagem" class="form-control text-area"
+              ng-model="main.message.message"
+              required></textarea>
           </div>
           <div class="text-right">
             <button type="submit" class="btn btn-lg btn-success">Publicar</button>
@@ -21,29 +25,7 @@
           </span>
         </div>
 
-        <div class="row">
-          <div class="col-xs-9">
-            <div class="row-element">
-              {{ 1288323623006 | date:'dd/MM/yyyy' }} <strong>Título da mensagem</strong>
-            </div>
-          </div>
-          <div class="col-xs-3 text-right">
-            <button class="btn btn-sm btn-default"><span class="glyphicon glyphicon-pencil"></span></button>
-            <button class="btn btn-sm btn-default"><span class="glyphicon glyphicon-trash"></span></button>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-xs-9">
-            <div class="row-element">
-              {{ 1288323623006 | date:'dd/MM/yyyy' }} <strong>Título da mensagem</strong>
-            </div>
-          </div>
-          <div class="col-xs-3 text-right">
-            <button class="btn btn-sm btn-default"><span class="glyphicon glyphicon-pencil"></span></button>
-            <button class="btn btn-sm btn-default"><span class="glyphicon glyphicon-trash"></span></button>
-          </div>
-        </div>
+        <df-message-card></df-message-card>
 
     </div>
     <div class="col-md-6 columns column-secondary main-pallet-two">

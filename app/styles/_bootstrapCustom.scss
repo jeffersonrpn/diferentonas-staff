@@ -2,6 +2,10 @@ $padding-factor: 15px;
 
 .form-control {
   padding: $padding-large-vertical $padding-large-horizontal;
+  -webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+  border-color: #fff;
 }
 
 .btn-lg {
@@ -10,4 +14,8 @@ $padding-factor: 15px;
 
 .btn-sm {
   @include button-size($padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $btn-border-radius-base);
+}
+
+.help-block {
+  padding-left: $padding-base-horizontal;
 }
