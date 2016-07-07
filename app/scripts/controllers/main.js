@@ -5,9 +5,9 @@
     .module('diferentonasStaffApp')
     .controller('MainCtrl', MainCtrl);
 
-    MainCtrl.$inject = ['Message'];
+    MainCtrl.$inject = ['Message', 'toastr'];
 
-    function MainCtrl(Message) {
+    function MainCtrl(Message, toastr) {
       var vm = this;
 
       vm.message = {
@@ -25,9 +25,9 @@
       }
       function getMessages() {
         vm.messages = Message.query(function success() {
-          console.log('Mensagens carregadas');
+          toastr.success('Mensagens carregadas');
         }, function error() {
-          console.log('Algo errado');
+          toastr.error('Algo errado');
         });
       }
     }
