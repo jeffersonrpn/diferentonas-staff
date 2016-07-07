@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-6 columns column-primary">
 
-        <form name="saveMessage" novalidate ng-submit="saveMessage()">
+        <form name="saveMessage" novalidate ng-submit="main.saveMessage();">
           <div class="form-group">
             <input type="text" id="titulo" name="title" placeholder="Título" class="form-control"
               ng-model="main.message.title"
@@ -25,7 +25,7 @@
           </span>
         </div>
 
-        <df-message-card></df-message-card>
+        <df-message-card ng-repeat="message in main.messages | filter:main.searchMessageTerm"></df-message-card>
 
     </div>
     <div class="col-md-6 columns column-secondary main-pallet-two">
