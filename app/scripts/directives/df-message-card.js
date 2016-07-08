@@ -15,6 +15,9 @@
     return {
       templateUrl: 'views/directives/df-message-card.html',
       restrict: 'E',
+      scope: {
+        message: '='
+      },
       link: function postLink(scope, element, attrs) {}
     };
   }

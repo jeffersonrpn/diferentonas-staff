@@ -5,9 +5,9 @@
     .module('diferentonasStaffApp')
     .controller('MainCtrl', MainCtrl);
 
-    MainCtrl.$inject = ['Message', 'toastr'];
+    MainCtrl.$inject = ['$scope','Message', 'toastr'];
 
-    function MainCtrl(Message, toastr) {
+    function MainCtrl($scope, Message, toastr) {
       var vm = this;
 
       vm.message = {
@@ -28,6 +28,12 @@
         };
         Message.save(data, function success() {
           toastr.success('Mensagem enviada com sucesso');
+          vm.message = {
+            title: '',
+            message: ''
+          }
+          $scope.saveMessageForm.$setPristine();
+          getMessages();
         }, function error() {
           toastr.console.error('Não foi possível enviar a mensagem');
         });
