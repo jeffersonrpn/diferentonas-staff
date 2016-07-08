@@ -17,6 +17,7 @@
       vm.messages = [];
       vm.searchMessageTerm = '';
       vm.saveMessage = saveMessage;
+      vm.deleteMessage = deleteMessage;
 
       getMessages();
 
@@ -38,11 +39,18 @@
           toastr.console.error('Não foi possível enviar a mensagem');
         });
       }
+      function deleteMessage(message) {
+        Message.delete({id: message.id}, function success() {
+          toastr.success('Mensagem removida com sucesso');
+          getMessages();
+        }, function error() {
+          toastr.error('Não foi possível remover a mensagem');
+        });
+      }
       function getMessages() {
         vm.messages = Message.query(function success() {
-          toastr.success('Mensagens carregadas');
         }, function error() {
-          toastr.error('Algo errado');
+          toastr.error('Não foi possível carregar mensagens');
         });
       }
     }

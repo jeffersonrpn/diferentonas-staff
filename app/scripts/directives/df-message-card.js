@@ -16,7 +16,8 @@
       templateUrl: 'views/directives/df-message-card.html',
       restrict: 'E',
       scope: {
-        message: '='
+        message: '=',
+        deleteFuncion: '&'
       },
       link: function postLink(scope, element, attrs) {}
     };
