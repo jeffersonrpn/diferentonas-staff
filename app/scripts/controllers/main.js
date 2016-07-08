@@ -21,7 +21,16 @@
       getMessages();
 
       function saveMessage() {
-        console.log(vm.message);
+        var data = {
+            titulo: vm.message.title,
+            conteudo: vm.message.message,
+            autor: "User01"
+        };
+        Message.save(data, function success() {
+          toastr.success('Mensagem enviada com sucesso');
+        }, function error() {
+          toastr.console.error('Não foi possível enviar a mensagem');
+        });
       }
       function getMessages() {
         vm.messages = Message.query(function success() {

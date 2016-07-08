@@ -14,7 +14,7 @@
       'ngRoute', 'ngResource', 'jcs-autoValidate', 'toastr'
     ])
     .constant('RESTAPI', {
-      url: 'http://diferentonas.herokuapp.com'
+      url: 'http://diferentonas.herokuapp.com/api'
     })
     .config(function ($routeProvider) {
       $routeProvider
