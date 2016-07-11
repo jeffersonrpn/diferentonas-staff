@@ -5,6 +5,11 @@
     </div>
   </div>
   <div class="col-xs-2 text-right">
-    <button class="btn btn-sm btn-default" ng-click="deleteFunction(message)"><span class="glyphicon glyphicon-trash"></span></button>
+    <button
+      class="btn btn-sm btn-default"
+      ng-click="deleteFunction(message)"
+      confirm="Deseja realmente remover esta mensagem?">
+        <span class="glyphicon glyphicon-trash"></span>
+    </button>
   </div>
 </div>

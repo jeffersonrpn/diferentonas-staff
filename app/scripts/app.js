@@ -11,7 +11,7 @@
    */
   angular
     .module('diferentonasStaffApp', [
-      'ngRoute', 'ngResource', 'jcs-autoValidate', 'toastr'
+      'ngRoute', 'ngResource', 'ui.bootstrap', 'jcs-autoValidate', 'toastr', 'angular-confirm'
     ])
     .constant('RESTAPI', {
       url: 'http://diferentonas.herokuapp.com/api'
