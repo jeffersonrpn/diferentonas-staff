@@ -17,9 +17,8 @@
       restrict: 'E',
       scope: {
         message: '=',
-        deleteFuncion: '&'
-      },
-      link: function postLink(scope, element, attrs) {}
+        deleteFunction: '&'
+      }
     };
   }
 })(angular);

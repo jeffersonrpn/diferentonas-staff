@@ -28,7 +28,7 @@
         <df-message-card
           ng-repeat="message in main.messages | filter:main.searchMessageTerm:strict"
           message="message"
-          delete-function="main.deleteMessage">
+          delete-function="main.deleteMessage(message)">
         </df-message-card>
 
     </div>
