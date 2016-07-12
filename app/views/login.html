@@ -1,0 +1,8 @@
+<div class="container-fluid main-pallete-one columns">
+  <div ng-if="!auth.isAuthenticated()">
+    <button class="btn btn-default" ng-click="auth.authenticate('google')">Autenticar via Google</button>
+  </div>
+  <div ng-if="auth.isAuthenticated()">
+    Você está autenticado via Google.
+  </div>
+</div

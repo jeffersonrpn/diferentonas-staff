@@ -11,21 +11,26 @@
    */
   angular
     .module('diferentonasStaffApp', [
-      'ngRoute', 'ngResource', 'ui.bootstrap', 'jcs-autoValidate', 'toastr', 'angular-confirm', 'satellizer'
+      'ui.router', 'ngResource', 'ui.bootstrap', 'jcs-autoValidate', 'toastr', 'angular-confirm', 'satellizer'
     ])
     .constant('RESTAPI', {
       url: 'http://diferentonas.herokuapp.com/api'
     })
-    .config(function ($routeProvider) {
-      $routeProvider
-        .when('/', {
+    .config(function ($stateProvider, $urlRouterProvider) {
+      $stateProvider
+        .state('login', {
+          url: '/',
+          templateUrl: 'views/login.html',
+          controller: 'AuthCtrl',
+          controllerAs: 'auth'
+        })
+        .state('home', {
+          url: '/home',
           templateUrl: 'views/main.html',
           controller: 'MainCtrl',
           controllerAs: 'main'
-        })
-        .otherwise({
-          redirectTo: '/'
         });
+      $urlRouterProvider.otherwise('/');
     })
     .config(function ($authProvider) {
       $authProvider.google({

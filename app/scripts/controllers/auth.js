@@ -5,9 +5,9 @@
     .module('diferentonasStaffApp')
     .controller('AuthCtrl', AuthCtrl);
 
-    AuthCtrl.$inject = ['$scope', '$window', '$rootScope', '$auth', 'toastr'];
+    AuthCtrl.$inject = ['$scope', '$state', '$window', '$rootScope', '$auth', 'toastr'];
 
-    function AuthCtrl($scope, $window, $rootScope, $auth, toastr) {
+    function AuthCtrl($scope, $state, $window, $rootScope, $auth, toastr) {
       var vm = this;
 
       vm.authenticate = authenticate;
@@ -18,13 +18,14 @@
           .then(function(response) {
             console.log(response);
             toastr.success('Autenticado!');
-            $window.localStorage.currentUser = JSON.stringify(response.data.id);
+            $auth.setToken(response.data.state);
+            $window.localStorage.token = response.data.state;
+            $window.localStorage.currentUser = response.data.id;
             $rootScope.currentUser = JSON.parse($window.localStorage.currentUser);
-            window.location.href = window.location.origin+'/home.html';
+            $state.go('home');
           })
           .catch(function(response) {
-            console.log(response);
-            toastr.error('Não foi possivel autenticar-se com o Google');
+            toastr.error('Não foi possivel autenticar-se');
           });
       }
       function isAuthenticated() {
