@@ -28,7 +28,8 @@
           url: '/home',
           templateUrl: 'views/main.html',
           controller: 'MainCtrl',
-          controllerAs: 'main'
+          controllerAs: 'main',
+          data: { requiredLogin: true }
         });
       $urlRouterProvider.otherwise('/');
     })
@@ -40,4 +41,20 @@
         redirectUri: window.location.origin+'/home.html'
       });
     })
+    .run(function ($rootScope, $state, $auth) {
+      $rootScope.$on('$stateChangeStart',
+        function (event, toState) {
+          var requiredLogin = false;
+          // check if this state need login
+          if (toState.data && toState.data.requiredLogin) {
+            requiredLogin = true;
+          }
+
+          // if yes and if this user is not logged in, redirect him to login page
+          if (requiredLogin && !$auth.isAuthenticated()) {
+            event.preventDefault();
+            $state.go('login');
+          }
+        });
+    });
 })(angular);
