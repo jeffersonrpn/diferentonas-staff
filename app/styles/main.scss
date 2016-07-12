@@ -9,6 +9,8 @@ $color-pallete-one:       #5850C0;
 $color-pallete-one-dark:  #4E4981;
 $color-pallete-two:       #7D427D;
 $color-pallete-two-dark:  #60425F;
+$color-pallete-three:       #444242;
+$color-pallete-three-dark:  darken(#444242, 6.5%);
 
 .browsehappy {
   margin: 0.2em 0;
@@ -21,7 +23,7 @@ body {
 }
 
 .columns {
-  padding-top: $padding-base-vertical*20;
+  padding-top: $padding-base-vertical*10;
   height: 100vh;
   overflow: auto;
 }
@@ -34,12 +36,21 @@ body {
   padding-bottom: $padding-base-vertical*10;
 }
 
+.column-header {
+  height: 100px;
+  margin-bottom: $padding-base-vertical*10;
+}
+
 .main-pallete-one {
   background-color: $color-pallete-one;
 }
 
 .main-pallet-two {
   background-color: $color-pallete-two;
+}
+
+.main-pallet-three {
+  background-color: $color-pallete-three;
 }
 
 .text-area {
@@ -58,4 +69,16 @@ body {
   border-radius: $border-radius-base;
   padding: $padding-base-vertical $padding-base-horizontal+$padding-factor;
   color: #fff;
+}
+
+.logo {
+  margin: $padding-base-vertical*10 $padding-base-horizontal;
+}
+
+.signin-btn {
+
+  &:hover {
+    cursor: pointer;
+  }
+
 }
