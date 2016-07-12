@@ -11,7 +11,7 @@
    */
   angular
     .module('diferentonasStaffApp', [
-      'ngRoute', 'ngResource', 'ui.bootstrap', 'jcs-autoValidate', 'toastr', 'angular-confirm'
+      'ngRoute', 'ngResource', 'ui.bootstrap', 'jcs-autoValidate', 'toastr', 'angular-confirm', 'satellizer'
     ])
     .constant('RESTAPI', {
       url: 'http://diferentonas.herokuapp.com/api'
@@ -26,5 +26,13 @@
         .otherwise({
           redirectTo: '/'
         });
+    })
+    .config(function ($authProvider) {
+      $authProvider.google({
+        url: 'http://jsonplaceholder.typicode.com/posts',
+        clientId: '507990339080-6rdjq5luertdir63t7vvnrrasgvnhmp0.apps.googleusercontent.com',
+        scope: ['profile', 'email'],
+        redirectUri: window.location.origin+'/home.html'
+      });
     })
 })(angular);

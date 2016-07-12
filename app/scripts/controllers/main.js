@@ -5,9 +5,9 @@
     .module('diferentonasStaffApp')
     .controller('MainCtrl', MainCtrl);
 
-    MainCtrl.$inject = ['$scope','Message', 'toastr'];
+    MainCtrl.$inject = ['$scope','Message', '$window', '$auth', 'toastr'];
 
-    function MainCtrl($scope, Message, toastr) {
+    function MainCtrl($scope, Message, $window, $auth, toastr) {
       var vm = this;
 
       vm.message = {
@@ -16,8 +16,10 @@
       }
       vm.messages = [];
       vm.searchMessageTerm = '';
+      vm.currentUser = $window.localStorage.currentUser;
       vm.saveMessage = saveMessage;
       vm.deleteMessage = deleteMessage;
+      vm.isAuthenticated = isAuthenticated;
 
       getMessages();
 
@@ -52,6 +54,9 @@
         }, function error() {
           toastr.error('Não foi possível carregar mensagens');
         });
+      }
+      function isAuthenticated() {
+        return $auth.isAuthenticated();
       }
     }
 })(angular);

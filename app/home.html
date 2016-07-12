@@ -15,19 +15,12 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="diferentonasStaffApp" ng-controller="AuthCtrl as auth">
+  <body ng-app="diferentonasStaffApp">
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <div class="container-fluid main-pallete-one columns">
-      <div ng-if="!auth.isAuthenticated()">
-        <button class="btn btn-default" ng-click="auth.authenticate('google')">Autenticar via Google</button>
-      </div>
-      <div ng-if="auth.isAuthenticated()">
-        Você está autenticado via Google.
-      </div>
-    </div>
+    <div ng-view=""></div>
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
