@@ -12,6 +12,7 @@
 
       vm.authenticate = authenticate;
       vm.isAuthenticated = isAuthenticated;
+      vm.logout = logout;
 
       function authenticate(provider) {
         $auth.authenticate(provider)
@@ -30,6 +31,9 @@
       }
       function isAuthenticated() {
         return $auth.isAuthenticated();
+      };
+      function logout() {
+        $auth.logout();
       };
     }
 })(angular);
