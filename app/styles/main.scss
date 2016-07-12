@@ -53,12 +53,15 @@ body {
   background-color: $color-pallete-three;
 }
 
+.form-area {
+  margin-bottom: $padding-base-vertical*10;
+}
+
 .text-area {
   border-radius: 4px;
 }
 
 .search-container {
-  padding-top: $padding-base-vertical*10;
   padding-bottom: $padding-base-vertical*5;
 }
 
@@ -81,4 +84,10 @@ body {
     cursor: pointer;
   }
 
+}
+
+.panel-theme {
+  @include panel-variant($color-pallete-two-dark, $panel-primary-text, $color-pallete-two-dark, $color-pallete-two-dark);
+
+  background-color: $color-pallete-two-dark;
 }
