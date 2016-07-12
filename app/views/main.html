@@ -75,6 +75,12 @@
         </div>
       </div>
 
+      <df-staff-card
+        ng-repeat="citizen in main.staff"
+        citizen="citizen"
+        delete-function="main.deleteStaff(citizen)">
+      </df-staff-card>
+
     </div>
   </div>
 </div>

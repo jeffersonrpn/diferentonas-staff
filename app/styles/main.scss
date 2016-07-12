@@ -68,10 +68,22 @@ body {
 .row-element {
   width: 110%;
   margin-bottom: $padding-base-vertical;
-  background-color: $color-pallete-one-dark;
   border-radius: $border-radius-base;
   padding: $padding-base-vertical $padding-base-horizontal+$padding-factor;
   color: #fff;
+
+  &.row-element-primary {
+    background-color: $color-pallete-one-dark;
+  }
+
+  &.row-element-secondary {
+    background-color: $color-pallete-two-dark;
+  }
+
+}
+
+.row-element-icon {
+  color: #A3703B;
 }
 
 .logo {

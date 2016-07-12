@@ -17,6 +17,7 @@
       vm.messages = [];
       vm.searchMessageTerm = '';
       vm.citizens = [];
+      vm.staff = [];
       vm.searchCitizenTerm = '';
       vm.selectedCitizen = {
         login: ''
@@ -28,8 +29,10 @@
       vm.getCitizens = getCitizens;
       vm.selectCitizen = selectCitizen;
       vm.saveStaff = saveStaff;
+      vm.deleteStaff = deleteStaff;
 
       getMessages();
+      getStaff();
 
       function saveMessage() {
         var data = {
@@ -82,6 +85,12 @@
         vm.selectedCitizen = citizen;
         vm.searchCitizenTerm = citizen.login;
       }
+      function getStaff() {
+        vm.staff = Staff.query(function success() {
+        }, function error() {
+          toastr.error('Não foi possível carregar os funcionários');
+        });
+      }
       function saveStaff() {
         var data = {
             id: vm.selectedCitizen.id,
@@ -92,13 +101,29 @@
           method: "POST",
           params: data
        }).then(function(response) {
-         toastr.success('Funcionário atribuído com sucesso');
+         toastr.success('Funcionário cadastrado com sucesso');
          vm.selectedCitizen = {
            login: ''
          }
          vm.searchCitizenTerm = '';
+         getStaff();
        }, function(response) {
-         toastr.console.error('Não foi possível realizar a ação');
+         toastr.console.error('Não foi possível cadastrar o funcionário');
+       });
+      }
+      function deleteStaff(citizen) {
+        var data = {
+            id: citizen.id
+        };
+        $http({
+          url: RESTAPI.url+'/cidadaos/'+citizen.id+'/funcionario',
+          method: "DELETE",
+          params: data
+       }).then(function(response) {
+         toastr.success('Funcionário removido com sucesso');
+         getStaff();
+       }, function(response) {
+         toastr.console.error('Não foi possível remover o usuário');
        });
       }
       function isAuthenticated() {
