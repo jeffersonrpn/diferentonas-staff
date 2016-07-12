@@ -38,7 +38,7 @@
             autor: "User01"
         };
         Message.save(data, function success() {
-          toastr.success('Mensagem enviada com sucesso');
+          toastr.success('Alerta enviado com sucesso');
           vm.message = {
             title: '',
             message: ''
@@ -46,7 +46,7 @@
           $scope.saveMessageForm.$setPristine();
           getMessages();
         }, function error() {
-          toastr.console.error('Não foi possível enviar a mensagem');
+          toastr.console.error('Não foi possível enviar o alerta');
         });
       }
       function deleteMessage(message) {
@@ -96,6 +96,7 @@
          vm.selectedCitizen = {
            login: ''
          }
+         vm.searchCitizenTerm = '';
        }, function(response) {
          toastr.console.error('Não foi possível realizar a ação');
        });

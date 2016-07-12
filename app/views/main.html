@@ -8,12 +8,12 @@
 
         <form name="saveMessageForm" novalidate ng-submit="main.saveMessage();" class="form-area">
           <div class="form-group">
-            <input type="text" id="titulo" name="title" placeholder="Título" class="form-control"
+            <input type="text" id="titulo" name="title" placeholder="Título do alerta" class="form-control"
               ng-model="main.message.title"
               required>
           </div>
           <div class="form-group">
-            <textarea id="mensagem" name="message" rows="8" cols="40" placeholder="Mensagem" class="form-control text-area"
+            <textarea id="mensagem" name="message" rows="8" cols="40" placeholder="Mensagem do alerta" class="form-control text-area"
               ng-model="main.message.message"
               required></textarea>
           </div>
@@ -23,7 +23,7 @@
         </form>
 
         <div class="input-group search-container">
-          <input type="text" class="form-control" placeholder="Pesquisar mensagem..." ng-model="main.searchMessageTerm.titulo">
+          <input type="text" class="form-control" placeholder="Pesquisar alerta..." ng-model="main.searchMessageTerm.titulo">
           <span class="input-group-btn">
             <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
           </span>
@@ -47,7 +47,7 @@
         typeahead-loading="loadingLocations"
         typeahead-no-results="noResults"
         class="form-control"
-        placeholder="Pesquisar usuário">
+        placeholder="Para cadastrar um novo funcionário, comece pesquisando seu nome">
 
       <div class="list-group">
         <button type="button" class="list-group-item"
@@ -68,13 +68,8 @@
                 ng-model="main.selectedCitizen.ministerioDeAfiliacao"
                 required>
             </div>
-            <div class="checkbox">
-              <label>
-                <input type="checkbox" checked required> Funcionário do Governo
-              </label>
-            </div>
             <div class="text-right">
-              <button type="submit" class="btn btn-lg btn-success">Atribuir como funcionário</button>
+              <button type="submit" class="btn btn-lg btn-success">Cadastrar como funcionário do Governo</button>
             </div>
           </form>
         </div>
