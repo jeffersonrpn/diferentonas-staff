@@ -19,10 +19,10 @@
           .then(function(response) {
             console.log(response);
             toastr.success('Autenticado!');
-            $auth.setToken(response.data.state);
-            $window.localStorage.token = response.data.state;
-            $window.localStorage.currentUser = response.data.id;
-            $rootScope.currentUser = JSON.parse($window.localStorage.currentUser);
+            $auth.setToken(response);
+            $window.localStorage.token = response;
+            // $window.localStorage.currentUser = response;
+            $rootScope.currentUser = JSON.parse('{}');
             $state.go('home');
           })
           .catch(function(response) {

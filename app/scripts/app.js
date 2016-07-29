@@ -35,10 +35,8 @@
     })
     .config(function ($authProvider) {
       $authProvider.google({
-        url: 'http://jsonplaceholder.typicode.com/posts',
-        clientId: '507990339080-6rdjq5luertdir63t7vvnrrasgvnhmp0.apps.googleusercontent.com',
-        scope: ['profile', 'email'],
-        redirectUri: window.location.origin+'/home.html'
+        url: 'http://diferentonas.herokuapp.com/api/cidadao/auth/google',
+        clientId: '1061066859155-tngvmfeld8800lq6rmuu9dmq15301ucl.apps.googleusercontent.com'
       });
     })
     .run(function ($rootScope, $state, $auth) {
