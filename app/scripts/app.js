@@ -14,7 +14,7 @@
       'ui.router', 'ngResource', 'ui.bootstrap', 'jcs-autoValidate', 'toastr', 'angular-confirm', 'satellizer'
     ])
     .constant('RESTAPI', {
-      url: 'http://diferentonas.herokuapp.com/api'
+      url: 'http://diferentonas.nuvem.gov.br/api'
     })
     .config(function ($stateProvider, $urlRouterProvider) {
       $stateProvider
@@ -35,7 +35,7 @@
     })
     .config(function ($authProvider) {
       $authProvider.google({
-        url: 'http://diferentonas.herokuapp.com/api/cidadao/auth/google',
+        url: 'http://diferentonas.nuvem.gov.br/api/cidadao/auth/google',
         clientId: '1061066859155-tngvmfeld8800lq6rmuu9dmq15301ucl.apps.googleusercontent.com'
       });
     })
