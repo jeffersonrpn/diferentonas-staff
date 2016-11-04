@@ -83,7 +83,7 @@
       function selectCitizen(citizen) {
         vm.citizens = [];
         vm.selectedCitizen = citizen;
-        vm.searchCitizenTerm = citizen.login;
+        vm.searchCitizenTerm = citizen.nome;
       }
       function getStaff() {
         vm.staff = Staff.query(function success() {

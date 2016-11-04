@@ -53,12 +53,12 @@
         <button type="button" class="list-group-item"
           ng-repeat="citizen in main.citizens"
           ng-click="main.selectCitizen(citizen)">
-          <img class="img-circle" width="30px" ng-src="citizen.urlDaFoto">
+          <img class="img-circle" width="30px" ng-src="{{citizen.urlDaFoto}}" ng-if="citizen.urlDaFoto">
           {{citizen.nome}}
         </button>
       </div>
 
-      <div class="panel panel-default panel-theme" ng-if="main.selectedCitizen.login">
+      <div class="panel panel-default panel-theme" ng-if="main.selectedCitizen.nome">
         <div class="panel-body">
           <form name="saveStaffForm" novalidate ng-submit="main.saveStaff();">
             <div class="form-group">
