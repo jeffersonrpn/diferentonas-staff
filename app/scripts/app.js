@@ -30,6 +30,11 @@
           controller: 'MainCtrl',
           controllerAs: 'main',
           data: { requiredLogin: true }
+        })
+        .state('termos', {
+          url: '/termos',
+          templateUrl: 'views/termos.html',
+          data: { requiredLogin: false }
         });
       $urlRouterProvider.otherwise('/');
     })

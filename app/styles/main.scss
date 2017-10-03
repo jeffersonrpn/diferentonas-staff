@@ -20,12 +20,17 @@ $color-pallete-three-dark:  darken(#444242, 6.5%);
 }
 
 body {
+  font-family: 'Montserrat', sans-serif;
 }
 
 .columns {
   padding-top: $padding-base-vertical*10;
   height: 100vh;
   overflow: auto;
+
+  @media (max-width: $screen-sm-max) {
+    height: auto;
+  }
 }
 
 .column-primary {
@@ -41,7 +46,7 @@ body {
   margin-bottom: $padding-base-vertical*10;
 }
 
-.main-pallete-one {
+.main-pallet-one {
   background-color: $color-pallete-one;
 }
 
@@ -51,6 +56,10 @@ body {
 
 .main-pallet-three {
   background-color: $color-pallete-three;
+}
+
+.main-pallet-one-text {
+  color: #fff;
 }
 
 .form-area {
@@ -102,4 +111,24 @@ body {
   @include panel-variant($color-pallete-two-dark, $panel-primary-text, $color-pallete-two-dark, $color-pallete-two-dark);
 
   background-color: $color-pallete-two-dark;
+}
+
+.text-content {
+  max-width: 626px;
+  color: #fff;
+
+  @media (min-width: $screen-lg-min) {
+    padding-left: $padding-base-horizontal*2;
+  }
+
+  > h2 {
+    font-size: 36px;
+    line-height: 44px;
+  }
+
+  > p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
 }
